@@ -16,6 +16,18 @@ export const data = [
     {
         page : 'Reports',
         to : '/reports',
-        icon: <TbReportSearch />
+        icon: <TbReportSearch />,
+        subPage : [
+            {
+                page : 'Reports1',
+                to : '/reports/reports1',
+                icon: <TbReportSearch />
+            },
+            {
+                page : 'Reports2',
+                to : '/reports/reports2',
+                icon: <TbReportSearch />
+            },
+        ]
     },
 ]

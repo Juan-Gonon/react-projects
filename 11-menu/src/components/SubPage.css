@@ -1,0 +1,8 @@
+.list__subPage{
+    /* background: red; */
+    position: absolute;
+    bottom: -200%;
+    left: 0;
+    width: 100%;
+    padding: 0 30px;
+}

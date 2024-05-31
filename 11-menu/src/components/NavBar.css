@@ -44,50 +44,35 @@ header{
         gap: 15px;
         align-items: flex-start;
         justify-content: space-between;
-        padding: 10px 20px;
+        /* padding: 10px 20px; */
         position: relative;
         /* background: green; */
         margin-top: 80px;
 
+       .item__close{
+        width: 30px;
+        position: absolute;
+        top: -50px;
+        left: 15px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        padding: 8px 5px;
 
-        & li{
-            /* background: red; */
-            width: 100%;
-            padding: 8px 5px;
-
-            &:first-child{
-                width: 30px;
-                position: absolute;
-                top: -50px;
-                left: 15px;
-                height: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                cursor: pointer;
-
-                &:hover{
-                    background: transparent;
-                }
-
-                .icon-close{
-                    width: 30px;
-                    height: 30px;
-                }
-            }
-
-            .nav__menu-link{
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                text-decoration: none;
-                color: #fff;
-            }
-
-            &:hover{
-                background: purple;
-            }
-
+        .icon-close{
+            width: 30px;
+            height: 30px;
         }
+
+        &:hover{
+            background: none;
+            &::before{
+                background: transparent;
+            }
+        }
+       }
+
     }
 }

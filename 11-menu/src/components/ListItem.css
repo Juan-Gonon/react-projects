@@ -1,0 +1,43 @@
+li{
+    /* background: red; */
+    width: 100%;
+    position: relative;
+    padding: 10px 15px;
+    list-style: none;
+    max-height: 100px;
+    height: 100%;
+    overflow: hidden;
+
+    &.active{
+        max-width: 500px;
+        overflow: visible;
+        width: 100%;
+    }
+
+
+
+
+    .nav__menu-link{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+
+    &:hover{
+        background: rgba(255,255,255,.1);
+
+        &::before{
+            position: absolute;
+            content: '';
+            width: 4px;
+            height: 100%;
+            background: rgb(1, 151, 1);
+            left: 0;
+            top: 0;
+        }
+    }
+
+}

@@ -1,14 +1,18 @@
+import { useIsOpen } from "../hook/useIsOpen";
 import { IoGridOutline, IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { data } from "../data/data";
 import './NavBar.css'
+import { ListItem } from "./ListItem";
+import { SubPage } from "./SubPage";
 import { useState } from "react";
 
 export const NavBar = () => {
-    const [isOpen, setIsOpen] = useState(false)
+    const {isOpen, handleClickOpen} = useIsOpen()
+    const [haveSubMenu, setHaveSubMenu] = useState(false)
 
-    const handleClickOpen = ()=>{
-        setIsOpen(!isOpen)
+    const handleHaveSubMenu = ()=>{
+        setHaveSubMenu(!haveSubMenu)
     }
 
   return (
@@ -21,20 +25,19 @@ export const NavBar = () => {
         </div>
         <nav className={`nav__menu ${isOpen ? 'active' : ''}`}>
             <ul className="nav__menu-items">
-                <li onClick={handleClickOpen} >
+                <li onClick={handleClickOpen} className="item__close" >
                     <IoClose className="icon-close" />
                 </li>
                 {
                     data.map((item, index) => (
-                        <li key={index} onClick={handleClickOpen}  >
-                            <Link to={item.to} className="nav__menu-link" >
-                                {
-                                    item.icon
-                                }
-                                <span>{item.page}</span>
-                            </Link>
-                        </li>
-                    ))
+                         <ListItem  key={index} to={item.to} icon={item.icon} page={item.page} click={handleClickOpen} subMenu={item.subPage} haveSubMenu={haveSubMenu} handleHaveSubMenu={handleHaveSubMenu} >
+                            {
+                                item.subPage && 
+                                    <SubPage subMenu={item.subPage}></SubPage>
+                                
+                            }
+                        </ListItem>
+                    ))  
                 }
 
             </ul>
